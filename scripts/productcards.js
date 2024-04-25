@@ -1,8 +1,10 @@
 const productsSelector = document.getElementById("products");
 
 function createCard(product) {
+
+    console.log(product.id);
   return `
-    <a class="product-card" href="./details.html">
+    <a class="product-card" id="a-card" href="./details.html?id=${product.id}">
     <img class="product-img" src="${product.img}" alt="Macbook Pro" />
     <div class="product-info">
       <span class="product-title">${product.title}</span>

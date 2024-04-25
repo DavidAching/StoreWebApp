@@ -26,26 +26,26 @@ for (const options of options_nav) {
 const footerSelector = document.querySelector("#footer");
 const footer_options = [
   [
-    { option: "Ofertas de la semana", active: true, linkTo: "#" },
-    { option: "Laptops", active: false, linkTo: "#" },
-    { option: "Audio", active: true, linkTo: "#" },
-    { option: "Auticulares", active: true, linkTo: "#" },
+    { option: "Ofertas de la semana", active: true, linkTo: "/ofertas.html" },
+    { option: "Laptops", linkTo: "#" },
+    { option: "Audio", linkTo: "#" },
+    { option: "Auticulares", linkTo: "#" },
   ],
   [
     { option: "Cómo comprar", active: true, linkTo: "#" },
-    { option: "Formas de pago", active: false, linkTo: "#" },
-    { option: "Envios", active: false, linkTo: "#" },
-    { option: "Devoluciones", active: false, linkTo: "#" },
+    { option: "Formas de pago", linkTo: "#" },
+    { option: "Envios", linkTo: "#" },
+    { option: "Devoluciones", linkTo: "#" },
   ],
   [
     { option: "Costos y tarifas", active: true, linkTo: "#" },
-    { option: "Impuestos", active: false, linkTo: "#" },
-    { option: "Facturación", active: false, linkTo: "#" },
+    { option: "Impuestos", linkTo: "#" },
+    { option: "Facturación", linkTo: "#" },
   ],
   [
     { option: "Mis pedidos", active: true, linkTo: "#" },
-    { option: "Pedir nuevamente", active: false, linkTo: "#" },
-    { option: "Lista de deseos", active: false, linkTo: "#" },
+    { option: "Pedir nuevamente", linkTo: "#" },
+    { option: "Lista de deseos", linkTo: "#" },
   ],
   [{ option: "Garantía de Entrega", active: true, linkTo: "#" }],
 ];
@@ -59,7 +59,7 @@ for (const options of footer_options) {
     const li = document.createElement("li");
     ul.appendChild(li);
     const a = document.createElement("a");
-    a.href = "#"
+    a.href = lista.linkTo;
     li.appendChild(a);
     a.textContent = lista.option;
     if (lista.active == true) {
