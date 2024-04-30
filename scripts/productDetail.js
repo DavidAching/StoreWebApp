@@ -1,11 +1,7 @@
 const query = location.search;
 const params = new URLSearchParams(query);
 const id = params.get("id");
-console.log(id);
 const product = products.find((each) => each.id === id);
-console.log(product.price);
-
-
 
 
 // console.log(products.images.id);
@@ -29,7 +25,7 @@ function printDetails(id) {
   <form class="selector">
     <fieldset>
         <label class="label" for="color">Color</label>
-        <select type="text" placeholder="Selecciona un color">
+        <select id= "color-${product.id}" type="text" placeholder="Selecciona un color">
          ${product.colors
            .map((each) => `<option value=${each}>${each}</option>`)
            .join("")}
@@ -60,8 +56,8 @@ function printDetails(id) {
       </div>
     </div>
     <div class="add-cart">
-      <input type="number" name="" onchange="changeSubtotal(this, ${product.price})" placeholder="1">
-      <button type="button">Añadir al carrito</button>
+      <input type="number" id="quantity-${product.id}" onchange="changeSubtotal(this, ${product.price})" placeholder="1">
+      <button onclick = "saveProduct(${product.id})" style="cursor:pointer;" type="button">Añadir al carrito</button>
     </div>
     <div class="add-cart" id="subTotal">
         <div class="add-cart">
@@ -89,10 +85,28 @@ function changeMini(item) {
 
 function changeSubtotal (input, precio) {
   totalCompra = input.value;
-  console.log(totalCompra);
   subTotal = precio * totalCompra;
-  console.log(subTotal);
   refreshScreen = document.querySelector("#precioFinal")
-  console.log(refreshScreen);
   refreshScreen.textContent = subTotal;
+}
+
+
+
+function saveProduct (id) {
+  console.log("ingreso a la funcion");
+  console.log(id);
+
+  const found = products.find((each) => each.id == id);
+  console.log(found);
+
+  const product = {
+    id: id,
+    title: found.title,
+    price: found.price,
+    image: found.images[0],
+    color: document.querySelector("#color-" + id).value,
+    quantity: document.querySelector("#quantity-" + id).value,
+  };
+  const stringifyProduct = JSON.stringify(product);
+  localStorage.setItem(`cart${id}`, stringifyProduct);
 }
