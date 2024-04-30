@@ -84,6 +84,9 @@ main {
   height: auto;
 }
 
+.product-image img{
+  object-fit: cover;
+}
 .product-images-block {
   display: flex;
 }
