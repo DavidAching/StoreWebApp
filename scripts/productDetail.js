@@ -61,7 +61,7 @@ function printDetails(id) {
     </div>
     <div class="add-cart" id="subTotal">
         <div class="add-cart">
-          <p>El total es : <span id="precioFinal"> </span> </p>
+          <p>El sub total es : <span id="precioFinal"> </span> </p>
         </div>
     </div>
   </div>
