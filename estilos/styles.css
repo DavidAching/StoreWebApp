@@ -183,6 +183,99 @@ main {
   border: 1px solid #91919128;
 }
 
+.cart-product-container{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  /* height: 500px; */
+  padding: 50px 0px;
+}
+
+#cartproducts{
+  /* border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; */
+}
+
+.cartProductDetails {
+  display: flex;
+  flex-direction: row;
+  background-color: #F1F3F4;
+  border-radius: 5px;
+  padding: 20px 20px;
+  margin-bottom: 40px;
+}
+
+
+.cartProductDetails img{
+  border-radius: 5px;
+  height: 100px;
+  margin-right: 20px;
+}
+
+.cartProductResumen{
+  background-color: #F1F3F4;
+  border-radius: 5px;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.subtotalPrice{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.add-cart {
+  display: flex;
+  flex-direction: column;
+}
+
+.add-cart p{
+  margin: 0;
+  font-size: 12px;
+  font-weight: lighter;
+}
+
+.add-cart button{
+  width: 250px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  background-color: #ff3b3c;
+  color: #fff;
+}
+
+.inputResumenCart input{
+  width: 50px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #fff;
+  border: 0;
+  
+} 
+
+.inputResumenCart {
+  margin-top: 10px;
+}
+
+#bold {
+  font-weight: 800;
+}
+
+.precio{
+  display: flex;
+  align-self: center;
+  margin-left: 50px;
+}
+
+.resumenPedidos{
+  width: 300px;
+}
+
 
   
 
@@ -240,7 +333,7 @@ footer .container {
   }
 
   .search .form input {
-    width: 250px;
+    width: 100px;
   }
   .columns-container {
     flex: 1;
@@ -250,5 +343,10 @@ footer .container {
     margin: 0px 20px;
   }
 
-  
+  #cartproducts{
+    flex-direction: column;
+  }
+  .cartProductResumen{
+    margin-top: 50px;
+  }
 }

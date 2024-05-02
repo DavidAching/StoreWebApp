@@ -13,7 +13,7 @@
     ></script>
     <title>Tienda Virtual</title>
   </head>
-  <body>
+  <body>  
     <header>
       <div class="container">
         <div class="search">
@@ -55,19 +55,54 @@
       </div>
     </header>
     <section id="hero">
-      <div class="container" id="hero-container">
-        <div class="title-container">
-          <span>tecnología</span>
-          <span>renovada</span>
-        </div>
-      </div>
+      
     </section>
     <main>
       <div class="container">
-        <div class="product-container" id="products">
+        <div class="cart-product-container" id="products">
+          <article id="cartproducts">
+            <div class="cartProductDetails">
+              <div class="img">
+                <img src="assets/audifono2.jpg" alt="">
+              </div>
+              <div class="details">
+                <p style="font-weight: 800;margin: 0;">Apple iPhone XR, 64 GB, Black - Fully Unlocked (Refurbished)</p>
+                <p style="margin: 0;">This phone is unlocjed and compatible with any carrier of choice</p>
+                <div class="inputResumenCart">
+                  <input type="number" value="1" min="1">
+                </div>
+              </div>
+              <div class="precio">
+                <p id="bold">S/ 20.00</p>
+              </div>
+            </div>
+          </article>
+          
+
+
+
+
+
+
+          <article class="resumenPedidos">
+            <div class="cartProductResumen">
+              <p id="bold">Resumen del pedido</p>
+              <div class="subtotalPrice">
+                <p id="bold">Subtotal</p>
+                <p id="bold">S/.152.00</p>
+              </div>
+              <div class="add-cart">
+                <p>Incluye impuesto PAIS y percepcion AFIP.</p>
+                <button style="cursor:pointer;" type="button">Finalizar tu compra</button>
+              </div>
+            </div>
+          </article>
           
         </div>
+        
+        
       </div>
+      
     </main>
     <footer>
       <div class="container">
@@ -78,8 +113,9 @@
       </div>
     </footer>
     <script src="scripts/layout.js"></script>
-    <script src="scripts/productos.js"></script>
+    <script src="scripts/cart.js"></script>
+    <!-- <script src="scripts/productos.js"></script>
     <script src="scripts/productcards.js"></script>
-    <script src="scripts/filterProducts.js"></script>
+    <script src="scripts/filterProducts.js"></script> -->
   </body>
 </html>
