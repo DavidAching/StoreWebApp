@@ -56,12 +56,13 @@ function printDetails(id) {
       </div>
     </div>
     <div class="add-cart">
-      <input type="number" id="quantity-${product.id}" onchange="changeSubtotal(this, ${product.price})" placeholder="1">
+      <input type="number" min="1" id="quantity-${product.id}" onchange="changeSubtotal(this, ${product.price})" placeholder="1">
       <button onclick = "saveProduct(${product.id})" style="cursor:pointer;" type="button">Añadir al carrito</button>
     </div>
     <div class="add-cart" id="subTotal">
         <div class="add-cart">
-          <p>El sub total es : <span id="precioFinal"> </span> </p>
+          <p style="display:none;align-items: center;" id="subtotalPrice">El sub total es : <span style="font-weight: bold;font-size:20px;" id="precioFinal"> </span> </p>
+          <p id="nonePrice">El sub total es : <span style="font-weight: bold;font-size:20px;">S/. ${product.price} </span> </p>
         </div>
     </div>
   </div>
@@ -75,19 +76,29 @@ function printDetails(id) {
 
 printDetails(id);
 
-
-function changeMini(item) {
-  const selectedSrc = item.src;
-  const bigSelector = document.querySelector("#bigImg");
-  bigSelector.src = selectedSrc;
+//#region CAMBIO DE IMAGEN DESDE MINIATURA
+/* funcion que permite el cambio de la imagen del producto en #bigImg y esta se
+ejecuta desde la misma etiqueta con un llamado al onclick
+*/
+function changeMini(item) { // lo que recibe por parametro es el contexto, en este caso la etiqueta misma <img>
+  const selectedSrc = item.src; // La variable selectedSrc contendrá el contenido de la propiedad source de la etiqueta <img>
+  const bigSelector = document.querySelector("#bigImg"); // Instancia a la etiqueta con id bigImg
+  bigSelector.src = selectedSrc; //A la propiedad src de la instancia de la etiqueta le asignaremos el contenido de la variable selectedSrc
 }
+//#endregion
 
 
+/* Funcion que permite */
 function changeSubtotal (input, precio) {
   totalCompra = input.value;
   subTotal = precio * totalCompra;
-  refreshScreen = document.querySelector("#precioFinal")
-  refreshScreen.textContent = subTotal;
+  pSelectorNone = document.querySelector("#nonePrice");
+  pSelectorNone.style.display = "none";
+  pSelector = document.querySelector("#subtotalPrice");
+  pSelector.style.display = "inline-flex";
+  refreshScreen = document.querySelector("#precioFinal");
+  console.log(refreshScreen.style.display);
+  refreshScreen.textContent = `S/. ${subTotal}.000`;
 }
 
 
@@ -108,5 +119,5 @@ function saveProduct (id) {
     quantity: document.querySelector("#quantity-" + id).value,
   };
   const stringifyProduct = JSON.stringify(product);
-  localStorage.setItem(`cart${id}`, stringifyProduct);
+  localStorage.setItem(`cart`, stringifyProduct);
 }
