@@ -103,21 +103,53 @@ function changeSubtotal (input, precio) {
 
 
 
-function saveProduct (id) {
-  console.log("ingreso a la funcion");
-  console.log(id);
+function saveProduct(id) {
+  // Obtener el arreglo actual del Local Storage o crear uno nuevo si no existe
+  const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
 
+  // Buscar el producto correspondiente al ID
   const found = products.find((each) => each.id == id);
   console.log(found);
+  if (found) {
+    // Crear un objeto con los detalles del producto
+    const product = {
+      id: id,
+      title: found.title,
+      price: found.price,
+      image: found.images[0],
+      color: document.querySelector("#color-" + id).value,
+      quantity: document.querySelector("#quantity-" + id).value,
+    };
 
-  const product = {
-    id: id,
-    title: found.title,
-    price: found.price,
-    image: found.images[0],
-    color: document.querySelector("#color-" + id).value,
-    quantity: document.querySelector("#quantity-" + id).value,
-  };
-  const stringifyProduct = JSON.stringify(product);
-  localStorage.setItem(`cart`, stringifyProduct);
+    // Agregar el producto al arreglo existente
+    existingCart.push(product);
+
+    // Guardar el arreglo actualizado en el Local Storage
+    localStorage.setItem("cart", JSON.stringify(existingCart));
+
+    console.log("Producto agregado al carrito:", product);
+  } else {
+    console.log("Producto no encontrado con el ID:", id);
+  }
 }
+
+
+
+// function saveProduct (id) {
+//   console.log("ingreso a la funcion");
+//   console.log(id);
+
+//   const found = products.find((each) => each.id == id);
+//   console.log(found);
+
+//   const product = {
+//     id: id,
+//     title: found.title,
+//     price: found.price,
+//     image: found.images[0],
+//     color: document.querySelector("#color-" + id).value,
+//     quantity: document.querySelector("#quantity-" + id).value,
+//   };
+//   const stringifyProduct = JSON.stringify(product);
+//   localStorage.setItem(`cart`, stringifyProduct);
+// }
