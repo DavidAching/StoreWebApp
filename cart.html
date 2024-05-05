@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="estilos/styles.css" />
+    <link rel="stylesheet" href="estilos/details.css">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css..." />
@@ -11,7 +12,7 @@
       src="https://kit.fontawesome.com/898b9d3be3.js"
       crossorigin="anonymous"
     ></script>
-    <title>Tienda Virtual</title>
+    <title>Carrito</title>
   </head>
   <body>  
     <header>
@@ -27,10 +28,7 @@
             </form>
           </div>
           <div class="social">
-            <ul>
-              <li><i class="fa-brands fa-facebook"></i></li>
-              <li><i class="fa-brands fa-instagram"></i></li>
-              <li><i class="fa-solid fa-cart-shopping"></i></li>
+            <ul id="dinamicCartNumber">
             </ul>
           </div>
         </div>
@@ -51,7 +49,12 @@
       </div>
     </header>
     <section id="hero">
-      
+      <div class="container" id="hero-container">
+        <div class="title-container">
+          <span>mi</span>
+          <span>Carrito</span>
+        </div>
+      </div>
     </section>
     <main>
       <div class="container">
@@ -79,10 +82,10 @@
             <div class="cartProductResumen">
               <p id="bold">Resumen del pedido</p>
               <div id="resumeProducts">
-                <!-- <p>Apple iPhone XR, 64 GB</p><span style="font-weight: bold;">S/. 20.00</span> -->
+                <!-- <p>Apple iPhone XR, 64 GB</p><span style="font-weight: bold;">S/. 20.00</span> --> 
               </div>  
               <p></p>
-              <div class="subtotalPrice">
+              <div class="subtotalPrice" id="subtotalPrecio">
                 <p id="bold">Subtotal</p>
                 <p id="bold">S/.152.00</p>
               </div>
@@ -109,6 +112,8 @@
     </footer>
     <script src="scripts/layout.js"></script>
     <script src="scripts/cart.js"></script>
+    <script src="scripts/total.js"></script>
+    <script src="scripts/cartDinamic.js"></script>
     <!-- <script src="scripts/productos.js"></script>
     <script src="scripts/productcards.js"></script>
     <script src="scripts/filterProducts.js"></script> -->

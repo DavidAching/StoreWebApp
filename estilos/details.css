@@ -78,6 +78,23 @@ header {
   text-decoration: underline;
 }
 
+.dinamicCartStyle p{
+  position: absolute;
+  top: -25px;
+  right: 0px;
+  width: 20px;
+  height: 20px;
+  color: #ff3b3c;
+  background-color: white;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #ff3b3c;
+}
+
 /* DETALLE PRODUCTO */
 
 main {

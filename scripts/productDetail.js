@@ -56,7 +56,7 @@ function printDetails(id) {
       </div>
     </div>
     <div class="add-cart">
-      <input type="number" min="1" id="quantity-${product.id}" onchange="changeSubtotal(this, ${product.price})" placeholder="1">
+      <input type="number" min="1" max="10  " id="quantity-${product.id}" onchange="changeSubtotal(this, ${product.price})">
       <button onclick = "saveProduct(${product.id})" style="cursor:pointer;" type="button">Añadir al carrito</button>
     </div>
     <div class="add-cart" id="subTotal">
@@ -115,10 +115,10 @@ function saveProduct(id) {
     const product = {
       id: id,
       title: found.title,
-      price: found.price,
+      price: Number(found.price),
       image: found.images[0],
       color: document.querySelector("#color-" + id).value,
-      quantity: document.querySelector("#quantity-" + id).value,
+      quantity: Number(document.querySelector("#quantity-" + id).value)
     };
 
     // Agregar el producto al arreglo existente
@@ -128,6 +128,8 @@ function saveProduct(id) {
     localStorage.setItem("cart", JSON.stringify(existingCart));
 
     console.log("Producto agregado al carrito:", product);
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    createDinamicCart(cart);
   } else {
     console.log("Producto no encontrado con el ID:", id);
   }
