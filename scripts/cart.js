@@ -4,6 +4,7 @@ const resumenSelector = document.getElementById("resumeProducts");
 
 let cart = JSON.parse(localStorage.getItem("cart"));
 
+
 if (cart != null) {
   function createCart(cart) {
     console.log(cart);
@@ -22,7 +23,7 @@ if (cart != null) {
           <div class="precio">
               <p id="bold">S/ <span id="${cart.id}-subtotal">${cart.price * cart.quantity}</span></p>
           </div>
-          <i class="fa-solid fa-xmark"></i>
+          <i style="height: fit-content;" onclick="deleteProductls(${cart.id})" class="fa-solid fa-xmark"></i>
       </div>`;
   }
 
@@ -30,7 +31,6 @@ if (cart != null) {
   productscartSelector.innerHTML = productcartTemplate;
   let resumecartTemplate = "";
   resumenSelector.innerHTML = resumecartTemplate;
-
   function createResumen(cart) {
     // console.log(cart);
     return `
@@ -41,7 +41,6 @@ if (cart != null) {
     } </span></p>
       `;
   }
-  printCart(cart, "cartproducts");
   function printCart(arrayOfProducts, idSelector) {
     let productcartTemplate = "";
     let resumecartTemplate = "";
@@ -55,10 +54,12 @@ if (cart != null) {
     cartProductsSelector.innerHTML = productcartTemplate;
     resumenSelector.innerHTML = resumecartTemplate;
   }
+  printCart(cart, "cartproducts");
 } else {
   const productoCardSelector = document.getElementById("cartproducts");
   productoCardSelector.textContent = "NO HAY PRODUCTOS EN EL CARRITO.";
   productoCardSelector.style.fontWeight = "bold";
+  
 }
 
 function changeQuantity(evento) {
