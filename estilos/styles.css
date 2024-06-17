@@ -277,6 +277,19 @@ main {
   width: 300px;
 }
 
+.favoriteIcon{
+  font-size: 25px;
+    color: red;
+    position: absolute;
+    bottom: 15px;
+    right: 30px;
+}
+
+.favoriteIcon:hover{
+  cursor: pointer;
+}
+
+
 /*CARRITO DE COMPRAS VENTA FINAL*/
 
 .productlistcart{

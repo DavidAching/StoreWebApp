@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="estilos/styles.css" />
+    <link rel="stylesheet" href="estilos/details.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css..." />
+    <script
+      src="https://kit.fontawesome.com/898b9d3be3.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Registro</title>
+  </head>
+  <body>
+    <header style="height: 80px; display: flex;">
+      <div class="container" style="align-content: center;">
+        <div>
+            <img
+              src="../assets/tiendamia-logo.svg"
+              width="218"
+              alt="Logo store"
+            />
+          </div>
+      </div>
+    </header>
+    <main>
+      <div class="container" style="display: flex; flex-direction: column; align-items: center;">
+            <form class="login-form" action="" style="display: flex; flex-direction: column; width: 300px;">
+                <p style="margin-top: 20px; font-size: 20px; align-self: center;">Registrate</p>
+                <input style="height: 30px; padding: 5px; border-radius: 3px; border: 1px solid gray;" type="text" name="" id="" placeholder="Tu direccion de E-mail">
+                <input style="height: 30px; padding: 5px; margin-top: 15px; border-radius: 3px; border: 1px solid gray;" type="password" name="" id="" placeholder="Contraseña para tiendamania">
+                <p style="font-size: 10px; text-decoration: none; margin: 8px;"> <span><a href="#" style="text-decoration: none;">(?)</a></span>La contraseña debe tener al menos 6 caracteres.</p>
+                <div style="display: flex;">
+                    <input type="checkbox">
+                    <p style="font-size: 12px;">Recibir Ofertas!</p>
+                </div>
+                <a href="register.html"><button style="height: 45px; width: 300px; background-color: #ff3b3c; color: white; font-size: 16px; border: none; border-radius: 3px; cursor: pointer;" type="button">Registrarse</button></a>
+            </form>
+            <div class="terminos-login" style="width: 320px;">
+                <p style="font-size: 9px;">* Al ingresar con Facebook o Google estás aceptando recibir ofertas por email</p>
+                <p style="color: gray; font-size: 10px;">Tiendamania está protegida por reCAPTCHA y se aplican la <span style="color: blue;">Politica de Privacidad</span> y los <span style="color: blue;">Términos de Servicio de Google.</span></p>
+            </div>
+            <div class="registro" style="display: flex; flex-direction: column;">
+                <p style="font-size: 12px; color: gray;">¿Ya tienes una cuenta?</p>
+                <a href="login.html"><button style="height: 45px; background-color: #EEEFF2; color: black; font-size: 16px; border: none; border-radius: 3px; width: 300px; cursor: pointer; font-weight: 400;" type="button">Ingresar</button></a>
+                <p style="font-size: 10px; align-self: center;">Al registrarse estás aceptando nuestros <span><a style="color: gray;" href="#">Términos y Condiciones</a></span> <br> y nuestra <span><a href="#" style="color: gray;">Politicas de Privacidad</a></span></p>
+            </div>
+            
+      </div>
+    </main>
+    <script src="scripts/layout.js"></script>
+    <script src="scripts/productos.js"></script>
+    <script src="scripts/productcards.js"></script>
+    <script src="scripts/filterProducts.js"></script>
+    <script src="scripts/cart.js"></script>
+    <script src="scripts/cartDinamic.js"></script>
+  </body>
+</html>

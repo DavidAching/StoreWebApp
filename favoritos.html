@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="estilos/styles.css" />
+    <link rel="stylesheet" href="estilos/details.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css..." />
+    <script
+      src="https://kit.fontawesome.com/898b9d3be3.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Tienda Virtual</title>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="search">
+          <div class="logo">
+            <a href="index.html"><img src="../assets/tiendamia-logo.svg" width="218" alt="Logo store" /></a>
+          </div>
+          <div class="form">
+            <form>
+              <!-- <input type="text" placeholder="Search" onkeyup="captureText()" /> -->
+              <input type="text" placeholder="Search" id="search" />
+            </form>
+          </div>
+          <div class="social">
+            <ul id="dinamicCartNumber">
+            </ul>
+          </div>
+        </div>
+        <div class="nav" >
+          <ul id="nav">
+
+            <!-- JAVASCRIPT ESTA TRABAJANDO EN ESTA PARTE DEL CODIGO.
+            CON EL IDENTIFICADOR NAV ESTAMOS INSERTANDO INFORMACION DE TIPO HTML
+            DENTRO DEL CONTENEDOR -->
+
+            <!-- <li><a href="#">Ofertas</a></li>
+            <li><a href="#">Cómo comprar</a></li>
+            <li><a href="#">Costos y tarifas</a></li>
+            <li><a href="#">Mis pedidos</a></li>
+            <li><a href="#">Garantía</a></li> -->
+          </ul>
+        </div>
+      </div>
+    </header>
+    <section id="hero">
+      <div class="container" id="hero-container">
+        <div class="title-container">
+          <span>mis</span>
+          <span>Favoritos</span>
+        </div>
+      </div>
+    </section>
+    <main>
+      <div class="container">
+        <div class="product-container" id="favoriteProducts">
+          
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="container">
+        <div class="columns-container" id="footer">
+          
+        </div>
+        <div class="copyright">Curso de HTML + CSS 2024</div>
+      </div>
+    </footer>
+    <script src="scripts/layout.js"></script>
+    <script src="scripts/productos.js"></script>
+    <script src="scripts/productcards.js"></script>
+    <script src="scripts/favoritos.js"></script>
+    <script src="scripts/cart.js"></script>
+    <script src="scripts/cartDinamic.js"></script>
+    <script src="scripts/filterProducts.js"></script>
+  </body>
+</html>

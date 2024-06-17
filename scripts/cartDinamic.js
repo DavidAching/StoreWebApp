@@ -1,4 +1,4 @@
-console.log("cartDinamic.js");
+// console.log("cartDinamic.js");
 
 const dinamicCartSelector = document.getElementById("dinamicCartNumber");
 

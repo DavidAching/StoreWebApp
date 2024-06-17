@@ -1,4 +1,4 @@
-console.log("cart.js");
+// console.log("cart.js");
 const productscartSelector = document.getElementById("cartproducts");
 const resumenSelector = document.getElementById("resumeProducts");
 
@@ -9,7 +9,7 @@ if (cart != null) {
   function createCart(cart) {
     console.log(cart);
     return `
-      <div class="cartProductDetails">
+      <div class="cartProductDetails" style="position: relative;">
           <div class="img">
               <img src="${cart.image}" style="width: 100px;" alt="">
           </div>
@@ -18,6 +18,7 @@ if (cart != null) {
               <p style="margin: 0;">This phone is unlocked and compatible with any carrier of choice</p>
               <div class="inputResumenCart">
                   <input id="${cart.id}" onchange="changeQuantity(event)" type="number" value="${cart.quantity}" min="1" max="10">
+                  <i class="fa-regular fa-heart favoriteIcon"></i>
               </div>
           </div>
           <div class="precio">
@@ -26,6 +27,7 @@ if (cart != null) {
           <i style="height: fit-content;" onclick="deleteProductls(${cart.id})" class="fa-solid fa-xmark"></i>
       </div>`;
   }
+
 
   let productcartTemplate = "";
   productscartSelector.innerHTML = productcartTemplate;
@@ -53,6 +55,7 @@ if (cart != null) {
     let resumenSelector = document.getElementById("resumeProducts");
     cartProductsSelector.innerHTML = productcartTemplate;
     resumenSelector.innerHTML = resumecartTemplate;
+    
   }
   printCart(cart, "cartproducts");
 } else {
@@ -61,6 +64,18 @@ if (cart != null) {
   productoCardSelector.style.fontWeight = "bold";
   
 }
+
+//Cambiando el corazon vacio por lleno al hacer hover
+const favoriteSelector = document.querySelector(".fa-regular");
+  favoriteSelector.addEventListener('mouseenter', () => {
+    favoriteSelector.classList.add('fa-solid'); 
+  });
+  favoriteSelector.addEventListener('mouseleave', () => {
+    favoriteSelector.classList.remove('fa-solid'); 
+  });
+
+  favoriteSelector.addEventListener("click", agregarFavorito(idProduct));
+
 
 function changeQuantity(evento) {
   console.log(evento);

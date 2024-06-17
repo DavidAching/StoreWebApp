@@ -21,7 +21,7 @@ for (const options of options_nav) {
 }
 
 /* #endregion */
-console.log("layout.js");
+// console.log("layout.js");
 /* #region  FOOTER */
 const footerSelector = document.querySelector("#footer");
 const footer_options = [
