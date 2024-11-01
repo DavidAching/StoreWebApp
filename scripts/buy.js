@@ -28,30 +28,28 @@ function deleteProductls(id) {
 //AGREGA A FAVORITOS A UN PRODUCTO
 
 function toggleFavorite(id, element) {
-  const products = JSON.parse(localStorage.getItem("products")) || [];
-  const product = products.find((product) => product.id === id.toString());
-
+  const products = JSON.parse(localStorage.getItem('products')) || [];
+  const product = products.find(product => product.id === id.toString());
+  
   if (product) {
-    product.liked = product.liked === "1" ? "0" : "1";
-    localStorage.setItem("products", JSON.stringify(products));
+      product.liked = product.liked === "1" ? "0" : "1";
+      localStorage.setItem('products', JSON.stringify(products)); // Asegura que se guarde correctamente
 
-    if (product.liked === "1") {
-      element.classList.remove("fa-regular");
-      element.classList.add("fa-solid");
-    } else {
-      element.classList.remove("fa-solid");
-      element.classList.add("fa-regular");
-    }
-
-    console.log(
-      `Producto ${id} ${
-        product.liked === "1" ? "añadido a" : "removido de"
-      } favoritos`
-    );
+      // Actualizar el ícono visualmente
+      if (product.liked === "1") {
+          element.classList.remove('fa-regular');
+          element.classList.add('fa-solid');
+      } else {
+          element.classList.remove('fa-solid');
+          element.classList.add('fa-regular');
+      }
+      
+      console.log(`Producto ${id} ${product.liked === "1" ? 'añadido a' : 'removido de'} favoritos`);
   } else {
-    console.log(`Producto ${id} no encontrado`);
+      console.log(`Producto ${id} no encontrado`);
   }
 }
+
 
 function finalizarCompra() {
   // Vaciar el carrito en localStorage

@@ -56,10 +56,14 @@ function printDetails(id) {
       </div>
     </div>
     <div class="add-cart">
-      <input type="number" min="1" max="10  " id="quantity-${product.id}" onchange="changeSubtotal(this, ${product.price})">
-      <button onclick = "saveProduct(${product.id})" style="cursor:pointer;" type="button">Añadir al carrito</button>
-      <i id="fav-203428" class="fa-regular fa-heart favoriteIcon" aria-hidden="true"></i>
-      </div>
+    <input type="number" min="1" max="10" id="quantity-${product.id}" onchange="changeSubtotal(this, ${product.price})">
+    <button onclick="saveProduct(${product.id})" style="cursor:pointer;" type="button">Añadir al carrito</button>
+    
+    <!-- Ícono de favorito -->
+    <button style="background: none; border: none; cursor: pointer; margin-left: 10px;">
+        <i id="fav-${product.id}" class="fa-regular fa-heart favoriteIcon" onclick="toggleFavorite('${product.id}', this)" aria-hidden="true"></i>
+    </button>
+</div>
     <div class="add-cart" id="subTotal">
         <div class="add-cart">
           <p style="display:none;align-items: center;" id="subtotalPrice">El sub total es : <span style="font-weight: bold;font-size:20px;" id="precioFinal"> </span> </p>
@@ -108,32 +112,34 @@ function saveProduct(id) {
   // Obtener el arreglo actual del Local Storage o crear uno nuevo si no existe
   const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
 
-  // Buscar el producto correspondiente al ID
-  const found = products.find((each) => each.id == id);
-  console.log(found);
-  if (found) {
-    // Crear un objeto con los detalles del producto
-    const product = {
-      id: id,
-      title: found.title,
-      price: Number(found.price),
-      image: found.images[0],
-      color: document.querySelector("#color-" + id).value,
-      quantity: Number(document.querySelector("#quantity-" + id).value)
-    };
+  // Buscar el producto correspondiente al ID en el carrito
+  const foundProduct = existingCart.find((product) => product.id == id);
 
-    // Agregar el producto al arreglo existente
-    existingCart.push(product);
-
-    // Guardar el arreglo actualizado en el Local Storage
-    localStorage.setItem("cart", JSON.stringify(existingCart));
-
-    console.log("Producto agregado al carrito:", product);
-    let cart = JSON.parse(localStorage.getItem("cart"));
-    createDinamicCart(cart);
+  if (foundProduct) {
+      // Si el producto ya está en el carrito, aumenta la cantidad
+      foundProduct.quantity += Number(document.querySelector("#quantity-" + id).value);
   } else {
-    console.log("Producto no encontrado con el ID:", id);
+      // Si el producto no está en el carrito, agregarlo como un nuevo producto
+      const found = products.find((each) => each.id == id);
+      if (found) {
+          const product = {
+              id: id,
+              title: found.title,
+              price: Number(found.price),
+              image: found.images[0],
+              color: document.querySelector("#color-" + id).value,
+              quantity: Number(document.querySelector("#quantity-" + id).value)
+          };
+          existingCart.push(product);
+      }
   }
+
+  // Guardar el carrito actualizado en el Local Storage
+  localStorage.setItem("cart", JSON.stringify(existingCart));
+
+  console.log("Producto agregado o actualizado en el carrito:", id);
+  let cart = JSON.parse(localStorage.getItem("cart"));
+  createDinamicCart(cart);
 }
 
 

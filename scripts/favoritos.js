@@ -50,16 +50,17 @@ function createfavoriteCard(product) {
 }
 
 function printFavoriteCard(arrayOfProducts, idSelector) {
-  let favoriteproductsTemplate = "";
+  let favoriteProductsTemplate = "";
   for (const element of arrayOfProducts) {
-    if (element.liked === "1") {
-      console.log(element);
-      favoriteproductsTemplate += createfavoriteCard(element); 
-    }
+      if (element.liked === "1") { // Filtrar solo los productos con liked === "1"
+          console.log(element);
+          favoriteProductsTemplate += createfavoriteCard(element);
+      }
   }
-  let favoriteproductsSelector = document.getElementById(idSelector);
-  favoriteproductsSelector.innerHTML = favoriteproductsTemplate;
+  const favoriteProductsSelector = document.getElementById(idSelector);
+  favoriteProductsSelector.innerHTML = favoriteProductsTemplate;
 }
+
 
 
 function removeFavorite(productId) {

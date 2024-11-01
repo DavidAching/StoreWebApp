@@ -24,7 +24,12 @@ class Product {
   }
 }
 
-let products = [
+// Cargar productos desde localStorage o inicializar si no existen
+let products = JSON.parse(localStorage.getItem('products'));
+
+if (!products) {
+
+  products = [
   new Product(
     "203423",
     "Laptop Lenovo CoreTM I5",
@@ -123,6 +128,9 @@ let products = [
   ),
 ];
 
+localStorage.setItem('products', JSON.stringify(products)); // Guardar productos solo si no existen
+
+}
 // let products  = [
 //     {title: "Macbook Pro 15'4", description: "Space Gray", price: "$750.000", discount : "50% Off",policy: "Incluye impuesto País", img: "./assets/mock1.jpg" },
 //     {title: "Tablet", description: "Space Gray", price: "$750.000", discount : "50% Off",policy: "Incluye impuesto País", img: "./assets/mock1.jpg" },
@@ -131,4 +139,3 @@ let products = [
 //     {title: "Mouse", description: "Space Gray", price: "$750.000", discount : "50% Off",policy: "Incluye impuesto País", img: "./assets/mock1.jpg" },
 //     {title: "Microfono", description: "Space Gray", price: "$750.000", discount : "50% Off",policy: "Incluye impuesto País", img: "./assets/mock1.jpg" },
 // ];
-localStorage.setItem('products', JSON.stringify(products));
