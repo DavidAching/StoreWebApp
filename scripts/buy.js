@@ -6,16 +6,17 @@ console.log("coneccted to buy.js"); //CORRECT CONNECTION
 //Allows you to remove an item from your shopping cart.
 function deleteProductls(id) {
   const cart = JSON.parse(localStorage.getItem('cart')) || [];
-  console.log(`this is the value of the id : ${id}`);
-  const index = cart.findIndex((product) => product.id === id);
-  if (index !== -1) {
-      cart.splice(index, 1);
-      console.log(cart.length);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      console.log(`The item with ID ${id} has been removed from your cart.`);
-  } else {
-      console.log(`No items with ID ${id} were found in the cart.`);
-  }
+    const numericId = Number(id); // Convertir id a número
+    const index = cart.findIndex((product) => product.id === numericId);
+    if (index !== -1) {
+        cart.splice(index, 1);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        console.log(`El producto con ID ${id} ha sido eliminado del carrito.`);
+        // Actualizar la vista del carrito
+        printCart(cart, "cartproducts");
+    } else {
+        console.log(`No se encontró ningún producto con ID ${id} en el carrito.`);
+    }
 }
 
 

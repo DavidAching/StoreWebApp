@@ -7,6 +7,7 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];
 if (cart.length > 0) {
   
   function createCart(cart) {
+    console.log(cart.id);
     const products = JSON.parse(localStorage.getItem('products')) || [];
     const product = products.find(p => p.id === cart.id.toString());
     const isFavorite = product && product.liked === "1";
