@@ -212,6 +212,12 @@ main {
   margin-right: 15px;
 }
 
+.add-cart {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Espacio entre el botón y el ícono */
+}
+
 .add-cart input{
   width: 50px;
   height: 40px;
@@ -220,13 +226,24 @@ main {
   border: 0;
 }
 
-.add-cart button{
+.add-cart button {
   width: 200px;
   height: 40px;
   border-radius: 10px;
   border: none;
   background-color: #ff3b3c;
   color: #fff;
+  cursor: pointer;
+}
+
+.favoriteIcon {
+  font-size: 25px;
+  color: red;
+  cursor: pointer;
+}
+
+.favoriteIcon:hover {
+  color: darkred; /* Cambia de color al pasar el cursor */
 }
 
 .oferta-semana{

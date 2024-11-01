@@ -58,7 +58,8 @@ function printDetails(id) {
     <div class="add-cart">
       <input type="number" min="1" max="10  " id="quantity-${product.id}" onchange="changeSubtotal(this, ${product.price})">
       <button onclick = "saveProduct(${product.id})" style="cursor:pointer;" type="button">Añadir al carrito</button>
-    </div>
+      <i id="fav-203428" class="fa-regular fa-heart favoriteIcon" aria-hidden="true"></i>
+      </div>
     <div class="add-cart" id="subTotal">
         <div class="add-cart">
           <p style="display:none;align-items: center;" id="subtotalPrice">El sub total es : <span style="font-weight: bold;font-size:20px;" id="precioFinal"> </span> </p>

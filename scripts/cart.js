@@ -43,6 +43,15 @@ if (cart.length > 0) {
       `;
   }
 
+  function actualizarSubtotal(carrito) {
+    const subtotalSelector = document.getElementById("subtotalPrecio");
+    let total = 0;
+    carrito.forEach((producto) => {
+        total += producto.price * producto.quantity;
+    });
+    subtotalSelector.innerHTML = `<p id="bold">Subtotal</p> <p id="bold">S/. ${total}</p>`;
+}
+
   function printCart(arrayOfProducts, idSelector) {
     let productcartTemplate = "";
     let resumecartTemplate = "";
