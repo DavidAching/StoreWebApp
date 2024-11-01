@@ -27,8 +27,8 @@ if (cart.length > 0) {
           <div class="precio">
               <p id="bold">S/ <span id="${cart.id}-subtotal">${cart.price * cart.quantity}</span></p>
           </div>
-          <i style="height: fit-content;" onclick="deleteProductls(${cart.id})" class="fa-solid fa-xmark"></i>
-      </div>`
+          <i style="height: fit-content;" onclick="deleteProductls('${cart.id}')" class="fa-solid fa-xmark"></i>
+      </div>`;
   }
 
   function createResumen(cart) {
