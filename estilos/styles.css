@@ -183,6 +183,53 @@ main {
   border: 1px solid #91919128;
 }
 
+/* Estilos específicos para la página de favoritos */
+body.favorites-page .product-container {
+  padding: 50px 0px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 40px;
+}
+
+body.favorites-page .product-container .product-card {
+  position: relative;
+  /* border: 1px solid #91919128; */
+}
+
+body.favorites-page .product-container .product-link {
+  text-decoration: none;
+  color: initial;
+  display: block;
+}
+
+body.favorites-page .remove-favorite {
+  font-size: 20px;
+  border: none;
+  background: none;
+  color: #FF3B3C;
+  cursor: pointer;
+  padding: 0; /* Elimina el padding del botón */
+  transition: transform 0.2s ease;
+}
+
+body.favorites-page .remove-favorite:hover {
+  color: #cc0000;
+}
+
+body.favorites-page .product-info{
+  margin-bottom: 5px; /* Reduce el espacio debajo de la información del producto */
+}
+
+body.favorites-page .button-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 10px 5px; /* Reduce el padding superior e inferior */
+}
+
+
+
+/* ================================================================= */
+
 .cart-product-container{
   display: flex;
   justify-content: space-between;

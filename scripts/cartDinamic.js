@@ -2,17 +2,22 @@
 
 const dinamicCartSelector = document.getElementById("dinamicCartNumber");
 
+let isSessionActive = true;
+
 const cartNumberTemplate = `
 <li><i class="fa-brands fa-facebook"></i></li>
 <li><i class="fa-brands fa-instagram"></i></li>
+${isSessionActive ? `
 <li class="dinamicCartStyle" style="position: relative;">
-<a href="../cart.html"
-    style="
-        color: white;
-    "
-><i class="fa-solid fa-cart-shopping"></i>
-<p id="numeroCarrito">${cart != null ? cart.length : '0'}</p>
-</li></a>
+  <a href="../cart.html" style="color: white;">
+    <i class="fa-solid fa-cart-shopping"></i>
+    <p id="numeroCarrito">${cart != null ? cart.length : '0'}</p>
+  </a>
+</li>
+<li><i class="fa-solid fa-user-check"></i></li>
+` : `
+<li><i class="fa-solid fa-circle-user"></i></li>
+`}
 `;
 
 dinamicCartSelector.innerHTML = cartNumberTemplate;

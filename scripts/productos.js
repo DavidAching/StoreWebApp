@@ -35,7 +35,7 @@ let products = [
     "./assets/mock2.jpg",
     ["gris", "azul", "negro"],
     ["./assets/mock1.jpg", "./assets/mock2.jpg"],
-    "1"
+    "0"
   ),
   new Product(
     "203425",
@@ -59,7 +59,7 @@ let products = [
     "./assets/audifono1.jpg",
     ["gris", "azul", "negro"],
     ["./assets/audifono1.jpg", "./assets/audifono2.jpg"],
-    "1"
+    "0"
   ),
   new Product(
     "203421",
@@ -83,7 +83,7 @@ let products = [
     "./assets/mouse1.jpg",
     ["gris", "azul", "negro"],
     ["./assets/mouse1.jpg", "./assets/mouse2.jpg"],
-    "1"
+    "0"
   ),
   new Product(
     "203422",
@@ -131,3 +131,4 @@ let products = [
 //     {title: "Mouse", description: "Space Gray", price: "$750.000", discount : "50% Off",policy: "Incluye impuesto País", img: "./assets/mock1.jpg" },
 //     {title: "Microfono", description: "Space Gray", price: "$750.000", discount : "50% Off",policy: "Incluye impuesto País", img: "./assets/mock1.jpg" },
 // ];
+localStorage.setItem('products', JSON.stringify(products));

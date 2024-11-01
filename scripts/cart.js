@@ -2,11 +2,14 @@
 const productscartSelector = document.getElementById("cartproducts");
 const resumenSelector = document.getElementById("resumeProducts");
 
-let cart = JSON.parse(localStorage.getItem("cart"));
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-
-if (cart != null) {
+if (cart.length > 0) {
+  
   function createCart(cart) {
+    const products = JSON.parse(localStorage.getItem('products')) || [];
+    const product = products.find(p => p.id === cart.id.toString());
+    const isFavorite = product && product.liked === "1";
     console.log(cart);
     return `
       <div class="cartProductDetails" style="position: relative;">
@@ -18,21 +21,16 @@ if (cart != null) {
               <p style="margin: 0;">This phone is unlocked and compatible with any carrier of choice</p>
               <div class="inputResumenCart">
                   <input id="${cart.id}" onchange="changeQuantity(event)" type="number" value="${cart.quantity}" min="1" max="10">
-                  <i class="fa-regular fa-heart favoriteIcon"></i>
+                  <i id="fav-${cart.id}" class="${isFavorite ? 'fa-solid' : 'fa-regular'} fa-heart favoriteIcon" onclick="toggleFavorite('${cart.id}', this)"></i>
               </div>
           </div>
           <div class="precio">
               <p id="bold">S/ <span id="${cart.id}-subtotal">${cart.price * cart.quantity}</span></p>
           </div>
           <i style="height: fit-content;" onclick="deleteProductls(${cart.id})" class="fa-solid fa-xmark"></i>
-      </div>`;
+      </div>`
   }
 
-
-  let productcartTemplate = "";
-  productscartSelector.innerHTML = productcartTemplate;
-  let resumecartTemplate = "";
-  resumenSelector.innerHTML = resumecartTemplate;
   function createResumen(cart) {
     // console.log(cart);
     return `
@@ -43,6 +41,7 @@ if (cart != null) {
     } </span></p>
       `;
   }
+
   function printCart(arrayOfProducts, idSelector) {
     let productcartTemplate = "";
     let resumecartTemplate = "";
@@ -57,24 +56,25 @@ if (cart != null) {
     resumenSelector.innerHTML = resumecartTemplate;
     
   }
+
   printCart(cart, "cartproducts");
 } else {
   const productoCardSelector = document.getElementById("cartproducts");
   productoCardSelector.textContent = "NO HAY PRODUCTOS EN EL CARRITO.";
   productoCardSelector.style.fontWeight = "bold";
-  
 }
 
-//Cambiando el corazon vacio por lleno al hacer hover
-const favoriteSelector = document.querySelector(".fa-regular");
-  favoriteSelector.addEventListener('mouseenter', () => {
-    favoriteSelector.classList.add('fa-solid'); 
-  });
-  favoriteSelector.addEventListener('mouseleave', () => {
-    favoriteSelector.classList.remove('fa-solid'); 
-  });
 
-  favoriteSelector.addEventListener("click", agregarFavorito(idProduct));
+//Cambiando el corazon vacio por lleno al hacer hover
+// const favoriteSelector = document.querySelector(".fa-regular");
+//   favoriteSelector.addEventListener('mouseenter', () => {
+//     favoriteSelector.classList.add('fa-solid'); 
+//   });
+//   favoriteSelector.addEventListener('mouseleave', () => {
+//     favoriteSelector.classList.remove('fa-solid'); 
+//   });
+
+//   favoriteSelector.addEventListener("click", agregarFavorito(idProduct));
 
 
 function changeQuantity(evento) {
