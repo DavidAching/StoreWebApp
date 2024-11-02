@@ -9,6 +9,7 @@ const product = products.find((each) => each.id === id);
 /* #region  FUNCION DE IMPRESION DE LOS DATOS DE PRODUCTO EN HTML DESDE JAVASCRIPT */
 function printDetails(id) {
   const product = products.find((each) => each.id === id);
+  const isFavorite = product && product.liked === "1";
   const detailsTemplate = `
   <div class="product-images-block">
   <div class="product-images-little">
@@ -61,7 +62,7 @@ function printDetails(id) {
     
     <!-- Ícono de favorito -->
     <button style="background: none; border: none; cursor: pointer; margin-left: 10px;">
-        <i id="fav-${product.id}" class="fa-regular fa-heart favoriteIcon" onclick="toggleFavorite('${product.id}', this)" aria-hidden="true"></i>
+        <i id="fav-${product.id}" class="${isFavorite ? 'fa-solid' : 'fa-regular'} fa-heart favoriteIcon" onclick="toggleFavorite('${product.id}', this)" aria-hidden="true"></i>
     </button>
 </div>
     <div class="add-cart" id="subTotal">
