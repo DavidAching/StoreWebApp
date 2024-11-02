@@ -110,38 +110,48 @@ function changeSubtotal (input, precio) {
 
 
 function saveProduct(id) {
-  // Obtener el arreglo actual del Local Storage o crear uno nuevo si no existe
-  const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
+  // Verificar si el usuario ha iniciado sesión
+  const isOnline = sessionStorage.getItem("isOnline");
 
-  // Buscar el producto correspondiente al ID en el carrito
-  const foundProduct = existingCart.find((product) => product.id == id);
+  if (isOnline === "true") {
+      // Obtener el carrito actual del Local Storage o inicializar un array vacío si no existe
+      const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
 
-  if (foundProduct) {
-      // Si el producto ya está en el carrito, aumenta la cantidad
-      foundProduct.quantity += Number(document.querySelector("#quantity-" + id).value);
-  } else {
-      // Si el producto no está en el carrito, agregarlo como un nuevo producto
-      const found = products.find((each) => each.id == id);
-      if (found) {
-          const product = {
-              id: id,
-              title: found.title,
-              price: Number(found.price),
-              image: found.images[0],
-              color: document.querySelector("#color-" + id).value,
-              quantity: Number(document.querySelector("#quantity-" + id).value)
-          };
-          existingCart.push(product);
+      // Buscar el producto en el carrito por su ID
+      const foundProduct = existingCart.find((product) => product.id == id);
+
+      if (foundProduct) {
+          // Si el producto ya está en el carrito, aumenta la cantidad
+          foundProduct.quantity += Number(document.querySelector("#quantity-" + id).value);
+      } else {
+          // Si el producto no está en el carrito, agregarlo como un nuevo producto
+          const found = products.find((each) => each.id == id);
+          if (found) {
+              const product = {
+                  id: id,
+                  title: found.title,
+                  price: Number(found.price),
+                  image: found.images[0],
+                  color: document.querySelector("#color-" + id).value,
+                  quantity: Number(document.querySelector("#quantity-" + id).value)
+              };
+              existingCart.push(product);
+          }
       }
+
+      // Guardar el carrito actualizado en el Local Storage
+      localStorage.setItem("cart", JSON.stringify(existingCart));
+
+      alert("Producto agregado al carrito con éxito.");
+      let cart = JSON.parse(localStorage.getItem("cart"));
+      createDinamicCart(cart);
+
+  } else {
+      // Mostrar alerta si el usuario no ha iniciado sesión
+      alert("Por favor, inicia sesión para agregar productos al carrito.");
   }
-
-  // Guardar el carrito actualizado en el Local Storage
-  localStorage.setItem("cart", JSON.stringify(existingCart));
-
-  console.log("Producto agregado o actualizado en el carrito:", id);
-  let cart = JSON.parse(localStorage.getItem("cart"));
-  createDinamicCart(cart);
 }
+
 
 
 
